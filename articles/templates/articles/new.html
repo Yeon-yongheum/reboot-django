@@ -1,0 +1,23 @@
+{% extends 'articles/base.html' %}
+{% block body %}
+<form action="/articles/create/" class="form-horizontal">
+  <div class="form-group">
+    <label for="title" class="col-sm-2 control-label">제목 : </label>
+    <div class="col-md">
+      <input type="text" class="form-control" id="title" name="title" placeholder="제목을 입력하세요">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="content" class="col-md-2">내용 : </label>
+    <div class="col-md">
+      <textarea class="form-control" name="content" id="content"></textarea>
+    </div>
+  </div>
+  <div class="text-right mr-3">
+  <button type="submit" class="btn btn-primary ml-3">제출</button>
+  <button type="button" class="btn btn-primary" onclick = "location.href = '/articles/'">돌아가기</button>
+  </div>
+  
+</form>
+<br>
+{% endblock %}

@@ -1,0 +1,23 @@
+
+{% extends 'articles/base.html' %}
+{% block body %}
+<form action="/articles/{{ article.pk }}/update/">
+  <div class="form-group">
+    <label for="title" class="col-sm-2 control-label">제목 : </label>
+    <div class="col-md">
+      <input type="text" class="form-control" name="title" id="title" value="{{ article.title }}">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="content" class="col-md-2">내용 : </label>
+    <div class="col-md">
+      <textarea class="form-control" name="content" id="content">{{ article.content }}</textarea>
+    </div>
+  </div>
+  <div class="text-right mr-3">
+  <button type="submit" class="btn btn-outline-primary ml-3">수정하기</button>
+  <button type="button" class="btn btn-outline-primary" onclick = "location.href = '/articles/'">돌아가기</button>
+  </div>
+</form>
+<br>
+{% endblock %}

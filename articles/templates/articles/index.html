@@ -1,0 +1,26 @@
+{% extends 'articles/base.html' %}
+{% block body %}
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">제목</th>
+      <th scope="col">내용</th>
+      <th scope="col">수정날짜</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    {% for article in articles %}
+      <th scope="row"><a href="/articles/{{ article.pk }}/">{{ article.pk }}</a> </th>
+      <td><a href="/articles/{{ article.pk }}/">{{ article.title }}</td>
+      <td>{{ article.content}}</td>
+      <td>{{ article.update_at }}</td>
+    {% endfor %}
+    </tr>
+  </tbody>
+</table>
+<div class="text-right mr-3">
+<button type="button" class="btn btn-outline-secondary" onclick = "location.href = '/articles/new/' ">글 쓰기</button>
+</div> 
+{% endblock %}
