@@ -10,14 +10,16 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
+    
     {% for article in articles %}
+    <tr>
       <th scope="row"><a href="/articles/{{ article.pk }}/">{{ article.pk }}</a> </th>
       <td><a href="/articles/{{ article.pk }}/">{{ article.title }}</td>
       <td>{{ article.content}}</td>
       <td>{{ article.update_at }}</td>
-    {% endfor %}
     </tr>
+    {% endfor %}
+    
   </tbody>
 </table>
 <div class="text-right mr-3">

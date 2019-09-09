@@ -1,9 +1,41 @@
 {% extends 'articles/base.html' %}
 {% block body %}
-    <h1>{{ article.title }}</h1>
-    <textarea cols="30" rows="10">{{ article.content }}</textarea>
-    <br>
-    <a class="btn btn-dark" href="/articles/{{ article.pk }}/delete/">삭제</a>
-    <a class="btn btn-success" href="/articles/{{ article.pk }}/edit/">수정</a>
-
+<div class="mx-3">
+<h2>{{ article.title }}</h2>
+<h5>작성일자 : {{ article.created_at }}</h5>
+<h5>수정일자 : {{ article.update_at }}</h5>
+<hr>
+<p>{{ article.content }}</p>
+<hr>
+</div>
+<div class="mx-3">
+<div class="d-flex justify-content-between">
+<div>
+<a class="btn btn-primary" href="/articles/">목록으로</a>
+</div>
+<div>
+<a class="btn btn-dark " data-toggle="modal" data-target="#exampleModal" href="/articles/{{ article.pk }}/delete/">삭제</a>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">삭제</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>정말 삭제 하시겠습니까?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+        <button type="button" class="btn btn-primary">삭제하기</button>
+      </div>
+    </div>
+  </div>
+</div>
+<a class="btn btn-success" href="/articles/{{ article.pk }}/edit/">수정하기</a>
+</div>
+</div>
+</div>
 {% endblock %}
