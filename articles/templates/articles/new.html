@@ -1,6 +1,7 @@
 {% extends 'articles/base.html' %}
 {% block body %}
-<form action="/articles/create/" class="form-horizontal">
+<form action="/articles/create/" class="form-horizontal" method="POST">
+  {% csrf_token %}
   <div class="form-group">
     <label for="title" class="col-sm-2 control-label">제목 : </label>
     <div class="col-md">
