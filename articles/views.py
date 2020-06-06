@@ -46,3 +46,4 @@ def update(request, article_pk):
     article.content = content
     article.save()
     return redirect(f'/articles/{ article_pk }/')
+    # 시험시험
